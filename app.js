@@ -20,6 +20,8 @@ function addItem() {
   const li = document.createElement('li');
   li.textContent = input.value;
 
+  input.value = "";
+
   // Create span and delete button
   const span = document.createElement('span');
   const deleteButton = document.createElement('button');

@@ -2,13 +2,30 @@ import { createServer } from 'http';
 import fs from 'fs/promises';
 import url from 'url';
 import path from 'path';
+import qs from 'querystring';
 const PORT = process.env.PORT;
+
+const items = [];
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Route handler for POST /add/item
+const addItem = (req, res) => {
+  let body = '';
+  req.on('data', (chunk) => {
+    body += chunk;
+  });
+  req.on('end', () => {
+    const newItem = qs.parse(body);
+    items.push(newItem['item']);
+    console.log(items);
+  });
+}
+
 const server = createServer( async (req, res) => {
   try {
+    
     if (req.method === 'GET') {
       let filePath;
       if (req.url === '/') {
@@ -24,7 +41,19 @@ const server = createServer( async (req, res) => {
       res.setHeader('content-type', 'text/html');
       res.write(data);
       res.end();
-    } else {
+    } 
+    
+    else if (req.method === 'POST') {
+      if (req.url === '/') {
+        addItem(req, res);
+      } else {
+        res.writeHead(403, {'content-type': 'text/html'});
+        res.end('<h1>Request not allowed</h1>');
+        return;
+      }
+    }
+    
+    else {
       res.writeHead(403, {'content-type': 'text/html'});
       res.end('<h1>Request not allowed</h1>');
     }

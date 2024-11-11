@@ -19,9 +19,11 @@
   <body>
     <h1>My Shopping List</h1>
     <div>
-      <label for="item">Enter a new item:</label>
-      <input type="text" name="item" id="item" />
-      <button>Add item</button>
+      <form method="POST">
+        <label for="item">Enter a new item:</label>
+        <input type="text" name="item" id="item" />
+        <button type="submit">Add item</button>
+      </form>
     </div>
     <ul></ul>
   </body>

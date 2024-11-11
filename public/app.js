@@ -4,7 +4,7 @@ const input = document.querySelector("input");
 const addButton = document.querySelector("button");
 
 // Add click event to button, calls add item function
-addButton.addEventListener('click', () => addItem());
+// addButton.addEventListener('click', () => addItem());
 
 // Add keypress event to input
 input.addEventListener('keypress', (e) => {

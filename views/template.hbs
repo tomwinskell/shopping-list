@@ -14,7 +14,6 @@
         color: #666;
       }
     </style>
-    <script defer src="app.js"></script>
   </head>
   <body>
     <h1>My Shopping List</h1>
@@ -25,6 +24,13 @@
         <button type="submit">Add item</button>
       </form>
     </div>
-    <ul></ul>
+  <ul>
+    {{#each this}}
+      <li>
+        {{this}}
+          <span><button>Delete</button></span>
+      </li>
+    {{/each}}
+  </ul>
   </body>
 </html>

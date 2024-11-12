@@ -4,7 +4,7 @@ import url from 'url';
 import path from 'path';
 import qs from 'querystring';
 import Handlebars from 'handlebars';
-const PORT = 8080;
+const PORT = process.env.PORT || 4000;
 
 const items = ['pineapple', 'apple', 'bread'];
 

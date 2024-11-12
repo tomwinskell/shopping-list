@@ -14,21 +14,22 @@
         color: #666;
       }
     </style>
+    <script defer src="/public/app.js"></script>
   </head>
   <body>
     <h1>My Shopping List</h1>
     <div>
-      <form method="POST">
+      <form>
         <label for="item">Enter a new item:</label>
-        <input type="text" name="item" id="item" />
-        <button type="submit">Add item</button>
+        <input type="text" name="item"/>
+        <button id="js__add-button" type="button">Add item</button>
       </form>
     </div>
   <ul>
     {{#each this}}
       <li>
-        {{this}}
-          <span><button>Delete</button></span>
+        <span>{{this}}</span>
+          <button id="js__delete-button" type="button">Delete</button>
       </li>
     {{/each}}
   </ul>

@@ -2,7 +2,6 @@ import { createServer } from 'http';
 import fs from 'fs/promises';
 import url from 'url';
 import path from 'path';
-import qs from 'querystring';
 import Handlebars from 'handlebars';
 const PORT = process.env.PORT || 4000;
 

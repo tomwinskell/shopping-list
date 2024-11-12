@@ -4,6 +4,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
+    "start": "node --env-file=.env server.js",
     "dev": "nodemon --env-file=.env server.js"
   },
   "author": "Tom Winskell",
